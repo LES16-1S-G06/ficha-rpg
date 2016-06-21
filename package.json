@@ -1,0 +1,10 @@
+{
+  "name": "ficha-rpg",
+  "version": "1.0.0",
+  "description": "Site gerador de fichas de RPG.",
+  "main": "ficha-rpg.js",
+  "dependencies": {
+    "express": "2.5.10",
+    "jade": "latest"
+  }
+}

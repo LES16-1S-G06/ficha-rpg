@@ -1,0 +1,54 @@
+html
+  body
+    .container
+      .content
+        .row.ficha
+          .conteudo
+            .col-md-6
+              .col-md-11.col-sm-offset-1
+                h1
+                  | {{personagem.nome}}, {{personagem.raca}} {{personagem.classe}} de {{personagem.nivel}}º Nível
+                hr
+                .atributes
+                  span
+                    b Pontos de Vida:
+                    |  {{classePersonagem.dadosVida}}
+                  span
+                    b Movimentação:
+                    |  {{racaPersonagem.movimentacao}}
+                  span
+                    b Atributo Principal:
+                    |  {{classePersonagem.atributoJogProt}}
+                  span
+                    b Classe Mágica:
+                    |  {{classePersonagem.classeMagica}}
+                hr
+                h3 Atributos
+                .atributes
+                  span
+                    b FOR:
+                    |  {{racaPersonagem.forca}} + {{classePersonagem.forca}}
+                  span
+                    b DES:
+                    |  {{racaPersonagem.destreza}} + {{classePersonagem.destreza}}
+                  span
+                    b CON:
+                    |  {{racaPersonagem.constituicao}} + {{classePersonagem.constituicao}}
+                  span
+                    b INT:
+                    |  {{racaPersonagem.inteligencia}} + {{classePersonagem.inteligencia}}
+                  span
+                    b SAB:
+                    |  {{racaPersonagem.sabedoria}} + {{classePersonagem.sabedoria}}
+                  span
+                    b CAR:
+                    |  {{racaPersonagem.carisma}} + {{classePersonagem.carisma}}
+                hr
+                h3 História
+                p
+                  | {{personagem.historia}}
+          .col-md-6
+            .col-md-11
+              figure
+                img(style='width:480px; height:500px; margin-top:30px;', src='img/racas/{{personagem.raca}}.jpg')
+              .gradient-background

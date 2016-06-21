@@ -1,0 +1,26 @@
+doctype html
+html(ng-app='fichaRPG', ng-controller='IndexCtrl')
+  head
+    meta(charset='utf-8')
+    base(href='/')
+    title Ficha RPG
+    link(rel='stylesheet', type='text/css', href='/css/lib/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/css/style.css')
+  body(ng-class="{ 'homepage-background' : isHomepage() }")
+    header
+      .header-top
+        a(href='/')
+          .container
+            img.header-logo(src='/img/logo.png', alt='Ficha RPG')
+      .header-bottom
+    section.main-content
+      div(ng-view='')
+    footer(ng-show='!isHomepage()')
+      .footer
+    script(src='js/lib/angular/angular.min.js')
+    script(src='js/ficha-rpg.js')
+    script(src='js/services.js')
+    script(src='js/controllers.js')
+    script(src='js/filters.js')
+    script(src='js/directives.js')
+    script(src='/js/lib/modernizr/modernizr.custom.js')

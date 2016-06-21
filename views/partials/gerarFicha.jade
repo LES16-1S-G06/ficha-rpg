@@ -1,0 +1,81 @@
+html
+  body
+    .container
+      .content
+        form(name='gerarFichaForm', role='form', ng-submit='inserirPersonagem()')
+          .row.wiz
+            .col-xs-10.col-xs-offset-1
+              // MENU
+              .wiz-nav
+                .wiz-nav-item(ng-click="setCurrentTab('general')")
+                  img.img-circle(src='/img/bt-general-info.png', ng-class="{ selected : isCurrentTab('general') }")
+                .wiz-nav-item(ng-click="setCurrentTab('race')")
+                  img.img-circle(src='/img/bt-race.png', ng-class="{ selected : isCurrentTab('race') }")
+                .wiz-nav-item(ng-click="setCurrentTab('class')")
+                  img.img-circle(src='/img/bt-class.png', ng-class="{ selected : isCurrentTab('class') }")
+                .wiz-nav-item
+                  button.btn.btn-warning(type='submit') Gerar Ficha
+              // GENERAL INFORMATION
+              div(ng-show="isCurrentTab('general')")
+                h2 Informações Gerais
+                .row
+                  .form-group.col-xs-5
+                    label Nome
+                    input.form-control(type='text', ng-model='personagem.nome', required='')
+                  .form-group.col-xs-5
+                    label Título
+                    input.form-control(type='text', ng-model='personagem.titulo')
+                  .form-group.col-xs-2
+                    label Nível
+                    input.form-control(type='text', ng-model='personagem.nivel', required='')
+                  .col-xs-12
+                    label História
+                    textarea.form-control(ng-model='personagem.historia', rows='4')
+              // RACE
+              div(ng-show="isCurrentTab('race')")
+                h2 Raça
+                ul.grid.cs-style-4
+                  li(ng-repeat='raca in racas')
+                    figure
+                      div
+                        img(src='/img/racas/{{raca.nome}}.jpg')
+                      figcaption
+                        label.active
+                          input(type='radio', name='raca', value='{{raca.nome}}', ng-model='personagem.raca', required='')
+                          |                               {{raca.nome}}
+                        h4 {{raca.nome}}
+                        .atributes
+                          span FOR: {{raca.forca}}
+                          span DES: {{raca.destreza}}
+                          span CON: {{raca.constituicao}}
+                          span INT: {{raca.inteligencia}}
+                          span SAB: {{raca.sabedoria}}
+                          span CAR: {{raca.carisma}}
+                          span MOV: {{raca.movimentacao}}
+                          br
+                          span
+                            span.principal Descrição:
+                            |  {{raca.descricao}}
+              // CLASS
+              div(ng-show="isCurrentTab('class')")
+                h2 Classe
+                ul.grid.cs-style-4.class-list
+                  li(ng-repeat='classe in classes')
+                    figure
+                      div
+                        img(src='/img/classes/{{classe.descricao}}.png')
+                      figcaption
+                        label.active
+                          input(type='radio', name='classe', value='{{classe.descricao}}', ng-model='personagem.classe', required='')
+                          |                               {{classe.descricao}}
+                        h4 {{classe.descricao}}
+                        .atributes
+                          span DV: {{classe.dadosVida}}
+                          span FOR: {{classe.forca}}
+                          span DES: {{classe.destreza}}
+                          span INT: {{classe.inteligencia}}
+                          span SAB: {{classe.sabedoria}}
+                          span CAR: {{classe.carisma}}
+                          span CON: {{classe.constituicao}}
+                          span JP: {{classe.atributoJogProt}}
+                          span CM: {{classe.classeMagica}}
